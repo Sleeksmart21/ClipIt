@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5">
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><p class="text-white m-0"><h2>About Us</h2></p></div>
+        </div>
+        <div class="row gx-4 gx-lg-5 align-items-center my-5 text-white">
+            <div class="col-lg-12">
+                <h2 class="font-weight-light">Welcome to our About page!</h2>
+                <p>The LASER Team understands the moment we are in time and the need to make every second count, 
+                  we are providing URL management services to help businesses shorten, customize, analyze and share everything about their business links.</p>
+                <p>The Team is further offering other services all geared towards making businesses run seamlessly with huge success..</p>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container px-4 px-lg-5">
+
+  <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body"><p class="text-white m-0"><h3>Our Services</h3></p></div>
+  </div>
+
+  <!-- Content Row-->
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_website_development_image.jpg" alt="Website Development"> -->
+        <div class="card-body">
+          <h2 class="card-title">Website Development</h2>
+          <p class="card-text">We specialize in creating responsive and visually appealing websites that meet your business needs.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_software_development_image.jpg" alt="Software Development"> -->
+        <div class="card-body">
+          <h2 class="card-title">Software Development</h2>
+          <p class="card-text">We offer custom software development services to help you build scalable and efficient solutions.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_website_management_image.jpg" alt="Website Management"> -->
+        <div class="card-body">
+          <h2 class="card-title">Website Management</h2>
+          <p class="card-text">We provide comprehensive website management services, ensuring your website runs smoothly and stays up-to-date.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_web_apps_image.jpg" alt="Web Apps Design and Development"> -->
+        <div class="card-body">
+          <h2 class="card-title">Web Apps Design and Development</h2>
+          <p class="card-text">We specialize in designing and developing interactive web applications that enhance user experience.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+          <!-- <img class="card-img-top" src="path_to_web_apps_image.jpg" alt="Web Apps Design and Development"> -->
+          <div class="card-body">
+            <h2 class="card-title">Web Apps Design and Development</h2>
+            <p class="card-text">We specialize in designing and developing interactive web applications that enhance user experience.</p>
+          </div>
+          <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+          <!-- <img class="card-img-top" src="path_to_web_apps_image.jpg" alt="Web Apps Design and Development"> -->
+          <div class="card-body">
+            <h2 class="card-title">Web Apps Design and Development</h2>
+            <p class="card-text">We specialize in designing and developing interactive web applications that enhance user experience.</p>
+          </div>
+          <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+        </div>
+      </div>
+    <!-- Add more service cards as needed -->
+  </div>
+</div>
+
+{% endblock content %}

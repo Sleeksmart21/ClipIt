@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container px-4 px-lg-5">
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <h1 class="text-white m-0">URL Generation History</h1>
+        </div>
+    </div>
+
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-lg-12">
+            <table class="table" style="background-color: #ffff;">
+                <thead>
+                    <tr>
+                        <th scope="col">Original URL</th>
+                        <th scope="col">Custom URL</th>
+                        <th scope="col">Generated Short URL</th>
+                        <th scope="col">URL Click Count</th>
+                        <th scope="col">Time Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in url_activities %}
+                    <tr>
+                        <td>{{ activity.original_url }}</td>
+                        <td>{{ activity.short_id }}</td>
+                        <td>{{ activity.short_url }}</td>
+                        <td>{{ activity.click_count }}</td>
+                        <td>{{ activity.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

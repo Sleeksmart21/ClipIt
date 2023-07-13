@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  .copy-btn,
+  .share-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Style for the blurred QR code image */
+  .blurred-image {
+    filter: blur(8px);
+  }
+</style>
+
+<div class="container px-4 px-lg-5">
+  <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0">OH, Wowooo! Here is Your Shortened URL</p>
+    </div>
+  </div>
+
+  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    
+    <!-- /*Show the Flash message */ -->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+
+
+        <!-- /* Return the shortened URL */ -->
+    {% if short_url %}
+    <hr>
+    <span><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></span>
+    {% endif %}
+    
+        <!-- /* Share to social media platforms */ -->
+    <div class="col-lg-12">
+      <button class="btn btn-secondary" onclick="copyURL('{{ short_url }}')">Copy URL</button>
+    </div>
+  </div>
+
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <!-- /*Return the QR Code for the shortened URL */ -->
+          <h2 class="card-title">QR Code</h2>
+          {% if qr_image_data %}
+          <img src="data:image/png;base64,{{ qr_image_data|b64encode }}" alt="QR Code"
+            style="margin-left: 50px; justify-content: center;">
+          {% else %}
+          <p>No QR code available</p>
+          {% endif %}
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm"
+            href="{{ url_for('download_qr', qr_image_data=qr_image_data|b64encode) }}">Download QRcode</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Shortened URL History</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tene
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="{{ url_for('history') }}">Get
+            History</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Your URL Analytics</h2>
+          <p class="card-text">Discover the power of URL Shortening Service Analytics! Take control of your shortened
+            links and unlock valuable insights. Experience the difference analytics can make for your URL shortening
+            service. Sign up today and unleash the full potential of your shortened links!</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function copyURL(url) {
+    const el = document.createElement('textarea');
+    el.value = url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('URL copied to clipboard!');
+  }
+</script>
+
+{% endblock content %}

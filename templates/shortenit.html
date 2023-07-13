@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{url_for('static', filename='images/Snip1.jpg')}}" alt="..." /></div>
+                <div class="col-lg-6">
+                    <h1 class="font-weight-light text-white">Please Shorten Your URL</h1>
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="post" action="{{url_for('shorten')}}">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="url" id="url" type="text" value="{{ request.form.get('url', '') }}" 
+                            placeholder="Enter Loooooooong URL" />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="custom_id" value="{{ request.form['custom_id'] }}"
+                                id="custom_id" type="text" placeholder="Want to customize? (optional)" />
+                            <label for="custom_id">Custom ID</label>
+                        </div>
+                        <button class="btn btn-secondary" type="submit">ClipIt</button>
+                    </form>
+                    <!-- <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p> -->
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Hey! Please Dont Forget to Get Across To Us if You 
+                    Need Any of The Services Below, Your Satisfaction is Our Satisfaction</p>
+                </div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Website Development</h2>
+                            <p class="card-text">We specialize in creating responsive and visually appealing websites that meet your business needs.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Software Development</h2>
+                            <p class="card-text">We offer custom software development services to help you build scalable and efficient solutions.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Website Management</h2>
+                            <p class="card-text">We provide comprehensive website management services, ensuring your website runs smoothly and stays up-to-date.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock content %}

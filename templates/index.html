@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1 class="text-center mb-3 text-white"><b><i>{% block title %} WELCOME TO CLIPIT {% endblock %}</i></b></h1>
+
+
+<div class="container px-4 px-lg-5">
+
+    <!-- <div class="col-lg-12"> -->
+    <!-- <div class="card text-white bg-secondary my-5 py-4 text-center"> -->
+    {% if current_user.is_authenticated %}
+      <h5 style="padding-bottom: 5px; color: lightgray;">Welcome {{current_user.first_name|capitalize}}.</h5>
+      <h3 style="padding-bottom: 5px; color: lightgray;">Get Started</h3>
+      <a href="{{ url_for('shortenit')}}"><button class="btn btn-light">Clip Your URL</button></a>
+    {% else %}
+      <h5 style="padding-bottom: 5px;">Welcome.</h5>
+      <h3>To Shorten Your URL</h3>
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <a href="{{ url_for('login')}}"><button class="btn btn-light">Login Here</button></a>
+        <hr>
+        <a href="{{ url_for('register')}}"><button class="btn btn-light">Sign Up</button></a>
+    </div>
+    {% endif %}
+
+  <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body"><p class="text-white m-0"><h3>Our Other Services</h3></p></div>
+  </div>
+
+  <!-- Content Row-->
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Web Dev SVG" style="width: 50px; height: 50px;">
+        <div class="card-body">
+          <h2 class="card-title">Website Development</h2>
+          <p class="card-text">We specialize in creating responsive and visually appealing websites that meet your business needs.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Card image" style="width:50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_software_development_image.jpg" alt="Software Development"> -->
+        <div class="card-body">
+          <h2 class="card-title">Software Development</h2>
+          <p class="card-text">We offer custom software development services to help you build scalable and efficient solutions.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{url_for('static', filename='images/dev.svg')}}" alt="Card image" style="width:50px; height: 50px;">
+        <!-- <img class="card-img-top" src="path_to_website_management_image.jpg" alt="Website Management"> -->
+        <div class="card-body">
+          <h2 class="card-title">Website Management</h2>
+          <p class="card-text">We provide comprehensive website management services, ensuring your website runs smoothly and stays up-to-date.</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-secondary btn-sm" href="#!">Learn More</a></div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+{% endblock content %}
+
+
+

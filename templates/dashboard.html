@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome, {{ current_user.first_name }}!</h1>
+        <h2>Short URL Analytics</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Short URL</th>
+                    <th>Original URL</th>
+                    <th>Click Count</th>
+                    <th>Latest Click Date</th>
+                    <th>Click Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for short_url in short_urls %}
+                    <tr>
+                        <td>{{ short_url.short_url }}</td>
+                        <td>{{ short_url.original_url }}</td>
+                        <td>{{ short_url.click_count }}</td>
+                        <td>{{ short_url.latest_click_date }}</td>
+                        <td>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>IP Address</th>
+                                        <th>User Agent</th>
+                                        <th>Referral Source</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for click in click_analytics[short_url.id] %}
+                                        <tr>
+                                            <td>{{ click.ip_address }}</td>
+                                            <td>{{ click.user_agent }}</td>
+                                            <td>{{ click.referral_source }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
